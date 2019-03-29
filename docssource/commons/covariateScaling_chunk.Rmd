@@ -6,9 +6,9 @@ output: html_document
 
 `Covariates conditioning` rules how the model is conditioned to different values of the continuous independent variables in the _simple effects_ estimation and in the _plots_ when there is an interaction in the model.
 
-* `Mean+SD`: means that the IV is conditioned to the $mean$,  to $mean+k \cdot sd$, and to  $mean-k\cdot sd$, where $k$ is ruled by the white field below the option. Default is 1 SD.
+* `Mean+SD`: means that the IV is conditioned to the $mean$,  to $mean+k \cdot sd$, and to  $mean-k\cdot sd$, where $k$ is defined in the white field below the option. Default is 1 SD.
 
-* `Percentile 50 +offset`: means that the IV is conditioned to the $median$, the  $median+k P$, and the $median-k\cdot P$, where $P$ is the offset of percentile one needs. Again, the $P$ is ruled by the white field below the option. Default is 25%. The default conditions the model to: 
+* `Percentile 50 +offset`: means that the IV is conditioned to the $median$, the  $median+P$, and the $median- P$, where $P$ is the offset of percentile one needs. Again, the $P$ is defined by the white field below the option. Default is 25%. The default conditions the model to: 
 
     + $50^{th}-25^{th}=25^{th}$ percentile
     

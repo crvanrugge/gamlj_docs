@@ -219,7 +219,7 @@ summary(model)
 
 ```
 
-If one need the uncentered _dummy_ coding, it can be obtained in R using `contr.treatment(k)`.
+If one needs the uncentered _dummy_ coding, it can be obtained in R using `contr.treatment(k)`.
 
 ## R emmeans
 

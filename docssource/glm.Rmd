@@ -16,11 +16,13 @@ output:
 source("../R/functions.R")
 ```
 
+`r version("1.5.0")` 
+
 **General Linear Model** module of the GAMLj suite for jamovi
 
 <img src="glm/main.png  " class="img-responsive" alt="">
 
-The module estimates a general linear model with categorial and/or continuous variables, with options to facilitate estimation ofinteractions, simple slopes, simple effects, etc.
+The module estimates a general linear model with categorial and/or continuous variables, with options to facilitate estimation of interactions, simple slopes, simple effects, etc.
 
 # Module
 The module can estimate OLS linear models for any combination of categorical and continuous variables, thus providing an easy way for multiple regression, ANOVA, ANCOVA and moderation analysis. 
@@ -28,14 +30,14 @@ The module can estimate OLS linear models for any combination of categorical and
 # Estimates
 The module provides ANOVA tables and parameters estimates for any estimated model. Effect size indices (eta, omega, and beta) are optionally computed.
 
-Variables definition follows jamovi standards, with categorical independent variables defined in "factors" and continuous independent variables in "covariates".
+Variables role definition follows jamovi standards, with categorical independent variables defined in `factors` and continuous independent variables in `covariates`.
 
 <img src="glm/variables.png" class="img-responsive" alt="">
 
 Effect size indices are optionally computed by selecting the following options:
 
   - __beta__ : standardized regression coefficients. Continuous variables are standardized and categorical ones are contrast coded (-1 0 1) before estimating the parameters.
-  - __eta^2__: "semi-partial" eta-squared computed as the sum-of-squares of the effect divided by the total sum-of-square.
+  - __eta^2__: "semi-partial" eta-squared computed as the sum-of-squares of the effect divided by the total sum-of-squares.
   - partial __eta^2__: partial eta-squared computed as the sum-of-squares of the effect divided by the  sum-of-squares of the effect plus the sum-of-squares of error.
   - __omega^2__: omega-squared 
 
@@ -48,6 +50,12 @@ By default, the model terms are filled in automatically for main effects and for
 <img src="glm/model.png" class="img-responsive" alt="">
 
 Interactions between continuous variables or categorical and continuous variables can be set by clicking the second arrow icon.
+
+For continuous variables, higher order effects can be defined by selecting the variable in the `Components` field, clicking the order number on the right (default=1), and then dragging the variable on the `Model Terms` field.
+
+<img src="glm/model2.png" class="img-responsive" alt="">
+
+Higher order terms should be defined before interactions involving the variable in the higher order term.
 
 The option `Fixed Intercept` includes an intercept in the model. Unflag it to estimate zero-intercept models (Regression through the origin, but see [here](https://dynamicecology.wordpress.com/2017/04/13/dont-force-your-regression-through-zero-just-because-you-know-the-true-intercept-has-to-be-zero/) before you do it ). 
 

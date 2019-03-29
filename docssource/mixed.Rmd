@@ -15,7 +15,7 @@ output:
 source("../R/functions.R")
 ```
 
-`r version("1.0.0")` 
+`r version("1.5.0")` 
 
 
 **Mixed Linear Models** module of the GAMLj suite for jamovi
@@ -44,20 +44,38 @@ The actual estimation occurs when the dependent variable, the clustering variabl
 
 # Random effects
 
-<img src="mixed/random.png" class="img-responsive" alt="">
+<img src="mixed/random1.png" class="img-responsive" alt="">
 
 Random effects across clustering variables are automatically prepared by the module following R lmer() standards: `term | cluster` indicates that the coefficient associated with `term` is random across `cluster`. 
 
-By default the module assumes correlated random effects. A variance component model can be estimated by de-selecting `Correlated Effects` option.
+By default the module assumes correlated random effects. A variance component model can be estimated by selecting `Not correlated` value in the `Effects correlation` option. More complex random components structures can be defined selecting `Correlated by block`. 
+
+<img src="mixed/random2.png" class="img-responsive" alt="">
+
+After selecting `Correlated by block` one can specify any number of blocks and fill them with different random effects. Effects in the same block will be correlated in the model, effects in different blocks will not be correlated. In the example, for instance, there are two blocks, one with the `Intercept` and the other one with `wfac | cluster` and `x | cluster`. The resulting model will set  `wfac` and `x` effects as correlated, but not correlated with the intercept. That is, the resulting random component is:
+
+` ~ ( 1 | cluster )+( 0+wfac + x | cluster )`
+
+Random effects in the same block should have the same clustering variable.
+
 
 The option `LRT for random effects` produces a table of *Likelihood Ratio Tests* for the random effects. The table is estimated with `lmerTest::ranova` command, documented [here](https://cran.r-project.org/web/packages/lmerTest/lmerTest.pdf). The test basically compares the likelihood of a model with the `effect` included versus a model with the `effect` excluded. For example, `x in (1+x|cluster)` means that the model with `(1+x|cluster)` random structure is compared with a model with `1|cluster)` random structure. If significant, the model with random effect `x` is significantly  better (in terms of likelihood) than the model with `(1|cluster)` structure.
 
 # Fixed effects Model 
-<img src="mixed/i3.png" class="img-responsive" alt="">
+
+<img src="mixed/model1.png" class="img-responsive" alt="">
 
 By default, the model fixed effects terms are filled in automatically for main effects and for interactions with categorical variables. 
 
 Interactions between continuous variables or categorical and continuous can be set by clicking the second arrow icon.
+
+For continuous variables, higher order effects can be defined by selecting the variable in the `Component` field, clicking the order number on the right (default=1), and then dragging the variable on the `Model Terms` field.
+
+<img src="mixed/model2.png" class="img-responsive" alt="">
+
+Higher order terms should be defined before interactions involving the variable in the higher order term.
+
+The option `Fixed Intercept` includes an intercept in the model. Unflag it to estimate zero-intercept models.
 
 # Factors coding
 

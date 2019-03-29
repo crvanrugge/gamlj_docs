@@ -16,6 +16,8 @@ output:
 source("../R/functions.R")
 ```
 
+`r version("1.5.0")` 
+
 **Generalized Linear Models** module of the GAMLj suite for jamovi
 
 <img src="gzlm/main.png" class="img-responsive" alt="">
@@ -68,6 +70,13 @@ By default, the model terms are filled in automatically for main effects and for
 <img src="gzlm/model.png" class="img-responsive" alt="">
 
 Interactions between continuous variables or categorical and continuous ones can be set by selecting one or more variables and clicking the second arrow icon.
+
+For continuous variables, higher order effects can be defined by selecting the variable in the `Components` field, clicking the order number on the right (default=1), and then dragging the variable on the `Model Terms` field.
+
+<img src="glm/model2.png" class="img-responsive" alt="">
+
+Higher order terms should be defined before interactions involving the variable in the higher order term.
+
 
 The option `Fixed Intercept` includes an intercept in the model. Unflag it to estimate zero-intercept models (Regression through the origin, but see [here](https://dynamicecology.wordpress.com/2017/04/13/dont-force-your-regression-through-zero-just-because-you-know-the-true-intercept-has-to-be-zero/) before you do it ). 
 

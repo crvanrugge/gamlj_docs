@@ -4,7 +4,7 @@ output: html_document
 ---
 
 
-The "plots" menu allows for plotting  main effects and interactions for any combination of types of variables, making it easy to plot interaction means plots, simple slopes, and combinations of them. The best plot is chosen automatically.
+The `Plots` panel allows for plotting  main effects and interactions for any combination of types of variables, making it easy to plot interaction means plots, simple slopes, and combinations of them. The best plot is chosen automatically.
 
 By filling in `Horizontal axis` one obtains the group means of the selected factor or the regression line for the selected covariate
 
